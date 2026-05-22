@@ -79,11 +79,11 @@ class Main extends ApplicationAdapter {
                 float w = Gdx.graphics.getWidth()
                 float h = Gdx.graphics.getHeight()
                 // convert screenY to world Y (libGDX touch Y is top-left)
-                float worldY = h - screenY
+                float worldY = (float) (h - screenY)
 
                 // Check close button (always present)
-                float closeX = w - closeBtnPadding - closeBtnSize
-                float closeY = h - closeBtnPadding - closeBtnSize
+                float closeX = (float) (w - closeBtnPadding - closeBtnSize)
+                float closeY = (float) (h - closeBtnPadding - closeBtnSize)
                 if (screenX >= closeX && screenX <= closeX + closeBtnSize &&
                     worldY >= closeY && worldY <= closeY + closeBtnSize) {
                     Gdx.app.exit()
@@ -98,16 +98,16 @@ class Main extends ApplicationAdapter {
 
                 // If game is running, check for tent click to enter/exit
                 if (gameStarted && !fading) {
-                    float tentX = (w - tent.getWidth()) / 2f
-                    float tentY = (h - tent.getHeight()) / 4f
+                    float tentX = (float) ((w - tent.getWidth()) / 2f)
+                    float tentY = (float) ((h - tent.getHeight()) / 4f)
 
                     if (screenX >= tentX && screenX <= tentX + tent.getWidth() &&
                         worldY >= tentY && worldY <= tentY + tent.getHeight()) {
                         insideTent = !insideTent
                         if (!insideTent) {
                             // exit tent: place character at tent entrance
-                            charX = tentX + (tent.getWidth() - character.getWidth()) / 2f
-                            charY = tentY + (tent.getHeight() - character.getHeight()) / 2f
+                            charX = (float) (tentX + (tent.getWidth() - character.getWidth()) / 2f)
+                            charY = (float) (tentY + (tent.getHeight() - character.getHeight()) / 2f)
                         }
                         return true
                     }
@@ -152,7 +152,7 @@ class Main extends ApplicationAdapter {
 
         if (showingSplash && !fading && !gameStarted) {
             // draw splash centered in window
-            batch.draw(splash, (w - splash.getWidth()) / 2f, (h - splash.getHeight()) / 2f)
+            batch.draw(splash, ((w - splash.getWidth()) / 2f).toFloat(), ((h - splash.getHeight()) / 2f).toFloat())
 
             // draw prompt centered near the bottom of the splash
             String prompt = "press any key to continue"
@@ -162,12 +162,12 @@ class Main extends ApplicationAdapter {
             font.draw(batch, layout, x, y)
         } else if (fading) {
             // while fading, keep showing splash under overlay
-            batch.draw(splash, ((w - splash.getWidth()) / 2f), ((h - splash.getHeight()) / 2f))
+            batch.draw(splash, ((w - splash.getWidth()) / 2f).toFloat(), ((h - splash.getHeight()) / 2f).toFloat())
 
             fadeTime += delta
             // seconds
             float fadeDuration = 1.0f
-            float alpha = Math.min(1f, fadeTime / fadeDuration)
+            float alpha = (float) Math.min(1f, fadeTime / fadeDuration)
             batch.setColor(0f, 0f, 0f, alpha)
             batch.draw(overlayPixel, 0, 0, (int) w, (int) h)
             batch.setColor(1f, 1f, 1f, 1f)
@@ -178,11 +178,11 @@ class Main extends ApplicationAdapter {
                 // start game
                 gameStarted = true
                 // place tent centered
-                float tentX = (w - tent.getWidth()) / 2f
+                float tentX = (float) ((w - tent.getWidth()) / 2f)
                 float tentY = (h - tent.getHeight()) / 4f
                 // place character inside tent center
-                charX = tentX + (tent.getWidth() - character.getWidth()) / 2f
-                charY = tentY + (tent.getHeight() - character.getHeight()) / 4f
+                charX = (float) (tentX + (tent.getWidth() - character.getWidth()) / 2f)
+                charY = (float) (tentY + (tent.getHeight() - character.getHeight()) / 4f)
             }
         }
 
@@ -191,12 +191,13 @@ class Main extends ApplicationAdapter {
                 batch.draw(background, 0, 0)
 
                 // draw tent centered
-                float tentX = (w - tent.getWidth()) / 2f
-                float tentY = (h - tent.getHeight()) / 4f
+                float tentX = (float) ((w - tent.getWidth()) / 2f)
+                float tentY = (float) ((h - tent.getHeight()) / 4f)
                 batch.draw(tent, tentX, tentY)
             } else {
                 batch.draw(tentBg, 0, 0)
             }
+
 
             // draw character (unless inside tent)
             if (!insideTent) {
@@ -206,20 +207,20 @@ class Main extends ApplicationAdapter {
             // draw a small HUD/title
             String title = insideTent ? "Inside the tent. Click tent to exit." : "You live in this tent. Use arrows to move. Click tent to enter."
             layout.setText(font, title)
-            font.draw(batch, layout, 10f, (h - 10))
+            font.draw(batch, layout, 10f, (h - 10f).toFloat())
         }
 
         // draw close button (always present)
-        float closeX = w - closeBtnPadding - closeBtnSize
-        float closeY = h - closeBtnPadding - closeBtnSize
+        float closeX = (float) (w - closeBtnPadding - closeBtnSize)
+        float closeY = (float) (h - closeBtnPadding - closeBtnSize)
         // draw button background
         batch.setColor(0.2f, 0.2f, 0.2f, 0.9f)
         batch.draw(overlayPixel, closeX, closeY, closeBtnSize, closeBtnSize)
         batch.setColor(1f, 1f, 1f, 1f)
         // draw X centered
         layout.setText(font, "X")
-        float xCenter = closeX + (closeBtnSize - layout.width) / 2f
-        float yCenter = closeY + (closeBtnSize + layout.height) / 2f
+        float xCenter = (float) (closeX + (closeBtnSize - layout.width) / 2f)
+        float yCenter = (float) (closeY + (closeBtnSize + layout.height) / 2f)
         font.draw(batch, layout, xCenter, yCenter)
 
         batch.end()
