@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="7" nextobjectid="1">
+ <tileset firstgid="1" source="campsite_tileset.tsx"/>
+ <layer id="1" name="ground" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJwTYmBgEBrE2JwAHx1LEmEGCN/Hoo8YdfjcYI6mB5tb8LlzsIcxqW4mFFfoWJaBIUEGSBPCshTYgQ0DzUywAtLEYGcg9sKCM4BmkIpJtNfBBQv2A8qRiom1F6huAa4wo6e9yHGcDjSDVEwN/9IyXQ1me9HzF7Zyk1J7JfHYR0yZAiwPDsgQgWXxpCtc7iEXo5u9Hog3kKiPGu7YD8QHqGAOseGDLUwpKaOpUb7TA+MKEwD2Amvj
+  </data>
+ </layer>
+ <layer id="3" name="background" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20JT6AAAHgaCWAAAQ==
+  </data>
+ </layer>
+ <layer id="4" name="foreground" width="30" height="20">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20JT6AAAHgaCWAAAQ==
+  </data>
+ </layer>
+</map>
