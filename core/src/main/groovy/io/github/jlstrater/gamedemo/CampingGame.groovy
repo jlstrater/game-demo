@@ -16,6 +16,7 @@ import com.badlogic.gdx.utils.viewport.FitViewport
 import com.badlogic.gdx.utils.viewport.Viewport
 import io.github.jlstrater.gamedemo.assets.AssetService
 import io.github.jlstrater.gamedemo.screen.GameScreen
+import io.github.jlstrater.gamedemo.screen.LoadingScreen
 
 class CampingGame extends Game {
     public static final float WORLD_WIDTH = 15f
@@ -44,8 +45,8 @@ class CampingGame extends Game {
         glProfiler.enable()
         fpsLogger = new FPSLogger()
 
-        addScreen(new GameScreen(this))
-        setScreen(GameScreen.class)
+        addScreen(new LoadingScreen(this, assetService))
+        setScreen(LoadingScreen.class)
     }
 
     @Override

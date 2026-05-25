@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="9" nextobjectid="36">
+<map version="1.10" tiledversion="1.12.1" orientation="orthogonal" renderorder="right-down" width="30" height="20" tilewidth="64" tileheight="64" infinite="0" nextlayerid="9" nextobjectid="37">
  <tileset firstgid="1" source="campsite_tileset.tsx"/>
  <tileset firstgid="257" source="objects.tsx"/>
  <layer id="1" name="ground" width="30" height="20">
@@ -13,23 +13,91 @@
   </data>
  </layer>
  <objectgroup id="8" name="objects">
-  <object id="17" gid="1073742085" x="1091" y="449.833" width="248.833" height="223.833" rotation="-180"/>
-  <object id="18" gid="260" x="810" y="333" width="256" height="256"/>
-  <object id="19" gid="260" x="1118" y="271" width="256" height="256"/>
-  <object id="20" gid="260" x="1335" y="339" width="256" height="256"/>
-  <object id="21" gid="262" x="1035.5" y="573.145" width="317.583" height="284.25"/>
-  <object id="23" gid="260" x="808.021" y="1098.99" width="256" height="256"/>
-  <object id="24" gid="260" x="1075.46" y="1205.97" width="256" height="256"/>
-  <object id="25" gid="260" x="1342.89" y="1109.28" width="256" height="256"/>
-  <object id="26" gid="260" x="1606.21" y="845.959" width="256" height="256"/>
-  <object id="27" gid="260" x="1680.27" y="391.32" width="256" height="256"/>
-  <object id="28" gid="260" x="540.587" y="977.619" width="256" height="256"/>
-  <object id="29" gid="260" x="219.665" y="1158.65" width="256" height="256"/>
-  <object id="30" gid="260" x="116.806" y="856.245" width="256" height="256"/>
-  <object id="31" gid="260" x="174.407" y="150.629" width="256" height="256"/>
-  <object id="32" gid="260" x="322.525" y="453.036" width="256" height="256"/>
-  <object id="33" gid="260" x="569.387" y="204.116" width="256" height="256"/>
-  <object id="34" gid="264" x="1064.5" y="784.528" width="255.083" height="248.833"/>
+  <object id="18" gid="260" x="810" y="333" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="19" gid="260" x="1118" y="271" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="20" gid="260" x="1335" y="339" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="21" gid="262" x="1031.33" y="612.729" width="317.583" height="284.25">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="23" gid="260" x="808.021" y="1098.99" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="24" gid="260" x="1075.46" y="1205.97" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="25" gid="260" x="1342.89" y="1109.28" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="26" gid="260" x="1606.21" y="845.959" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="27" gid="260" x="1680.27" y="391.32" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="28" gid="260" x="540.587" y="977.619" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="29" gid="260" x="219.665" y="1158.65" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="30" gid="260" x="116.806" y="856.245" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="31" gid="260" x="174.407" y="150.629" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="32" gid="260" x="322.525" y="453.036" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="33" gid="260" x="569.387" y="204.116" width="256" height="256">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="34" gid="264" x="1064.5" y="784.528" width="255.083" height="248.833">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
+  <object id="36" gid="2147483909" x="873.5" y="664" width="128" height="128">
+   <properties>
+    <property name="atlasAsset" value="OBJECTS"/>
+   </properties>
+  </object>
  </objectgroup>
  <layer id="4" name="foreground" width="30" height="20">
   <data encoding="base64" compression="zlib">

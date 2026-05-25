@@ -1,0 +1,34 @@
+
+objects.png
+size: 512, 512
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+camper/camper
+  rotate: false
+  xy: 4, 4
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+campfire/campfire
+  rotate: false
+  xy: 264, 264
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+tent/tent
+  rotate: false
+  xy: 136, 4
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+tree/tree
+  rotate: false
+  xy: 4, 136
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1

@@ -3,12 +3,16 @@ package io.github.jlstrater.gamedemo.tiled
 import com.badlogic.ashley.core.Engine
 import com.badlogic.ashley.core.Entity
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.TextureData
+import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.TextureRegion
+import com.badlogic.gdx.graphics.glutils.FileTextureData
 import com.badlogic.gdx.maps.tiled.TiledMapTile
 import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject
 import com.badlogic.gdx.math.Vector2
 import io.github.jlstrater.gamedemo.CampingGame
 import io.github.jlstrater.gamedemo.assets.AssetService
+import io.github.jlstrater.gamedemo.assets.AtlasAsset
 import io.github.jlstrater.gamedemo.component.Graphic
 import io.github.jlstrater.gamedemo.component.Transform
 
@@ -55,6 +59,13 @@ class TiledAshleyConfigurator {
     }
 
     private TextureRegion getTextureRegion(TiledMapTile tile) {
-        tile.textureRegion
+        String atlasAssetStr = tile.properties.get("atlasAsset", AtlasAsset.OBJECTS.name(), String)
+        AtlasAsset atlasAsset = AtlasAsset.valueOf(atlasAssetStr)
+        TextureAtlas textureAtlas = assetService.get(atlasAsset)
+        FileTextureData textureData = tile.textureRegion.texture.textureData as FileTextureData
+        String atlasKey = textureData.fileHandle.nameWithoutExtension()
+        TextureAtlas.AtlasRegion region = textureAtlas.findRegion(atlasKey + "/" + atlasKey)
+
+        return region ?: tile.getTextureRegion()
     }
 }
