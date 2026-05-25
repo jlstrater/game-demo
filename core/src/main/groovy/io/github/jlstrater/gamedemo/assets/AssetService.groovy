@@ -30,6 +30,10 @@ class AssetService implements Disposable {
         assetManager.get(asset.descriptor)
     }
 
+    <T> void unload(Asset<T> mapAsset) {
+        assetManager.unload(mapAsset.descriptor.fileName)
+    }
+
     boolean update() {
         assetManager.update()
     }

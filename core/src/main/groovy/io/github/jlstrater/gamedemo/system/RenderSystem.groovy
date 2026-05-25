@@ -25,14 +25,14 @@ class RenderSystem extends SortedIteratingSystem implements Disposable {
     Viewport viewport
     OrthographicCamera camera
 
-    RenderSystem(Batch batch, Viewport viewport, AssetService assetService) {
+    RenderSystem(Batch batch, Viewport viewport, OrthographicCamera camera) {
         super(
             Family.all(Transform, Graphic).get(),
             Comparator.comparing(Transform.MAPPER::get)
         )
         this.batch = batch
         this.viewport = viewport
-        this.camera = viewport.camera as OrthographicCamera
+        this.camera = camera
         mapRenderer = new OrthogonalTiledMapRenderer(null, CampingGame.UNIT_SCALE, batch)
     }
 
@@ -44,7 +44,10 @@ class RenderSystem extends SortedIteratingSystem implements Disposable {
         mapRenderer.render()
 
         forceSort()
+        batch.begin()
+        batch.setProjectionMatrix(camera.combined)
         super.update(deltaTime)
+        batch.end()
     }
 
     @Override

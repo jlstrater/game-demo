@@ -18,8 +18,8 @@ import io.github.jlstrater.gamedemo.assets.AssetService
 import io.github.jlstrater.gamedemo.screen.GameScreen
 
 class CampingGame extends Game {
-    public static final float WORLD_WIDTH = 16f
-    public static final float WORLD_HEIGHT = 9f
+    public static final float WORLD_WIDTH = 15f
+    public static final float WORLD_HEIGHT = 10f
     public static final UNIT_SCALE = (1f/128f).toFloat()
 
     Batch batch
@@ -39,6 +39,7 @@ class CampingGame extends Game {
         assetService = new AssetService(new InternalFileHandleResolver())
         camera = new OrthographicCamera()
         viewport = new FitViewport(WORLD_WIDTH, WORLD_HEIGHT, camera)
+
         glProfiler = new GLProfiler(Gdx.graphics)
         glProfiler.enable()
         fpsLogger = new FPSLogger()
@@ -62,22 +63,29 @@ class CampingGame extends Game {
         screen ? super.setScreen(screen) :  { throw new GdxRuntimeException("No screen with class "  + screenClass + " found in the screenCache")}
     }
 
+    void removeScreen(Screen screen) {
+        screenCache.remove(screen)
+    }
+
     @Override
     void render() {
         glProfiler.reset()
 
         Gdx.gl.glClearColor(0f,0f,0f,1f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
-        fpsLogger.log()
 
         super.render()
+
+        fpsLogger.log()
     }
 
     @Override
     void dispose() {
         screenCache.values().forEach(Screen::dispose)
+        screenCache.clear()
+
+        batch.dispose()
         assetService.debugDiagnostics()
         assetService.dispose()
-        batch.dispose()
     }
 }
