@@ -2,14 +2,14 @@ package io.github.jlstrater.gamedemo.screen
 
 import com.badlogic.ashley.core.Engine
 import com.badlogic.gdx.ScreenAdapter
-import com.badlogic.gdx.graphics.OrthographicCamera
-import com.badlogic.gdx.graphics.g2d.Batch
 import com.badlogic.gdx.maps.tiled.TiledMap
 import com.badlogic.gdx.utils.Disposable
-import com.badlogic.gdx.utils.viewport.Viewport
 import io.github.jlstrater.gamedemo.CampingGame
-import io.github.jlstrater.gamedemo.assets.AssetService
 import io.github.jlstrater.gamedemo.assets.MapAsset
+import io.github.jlstrater.gamedemo.input.GameControllerState
+import io.github.jlstrater.gamedemo.input.KeyboardController
+import io.github.jlstrater.gamedemo.system.ControllerSystem
+import io.github.jlstrater.gamedemo.system.MoveSystem
 import io.github.jlstrater.gamedemo.system.RenderSystem
 import io.github.jlstrater.gamedemo.tiled.TiledAshleyConfigurator
 import io.github.jlstrater.gamedemo.tiled.TiledService
@@ -18,28 +18,27 @@ import java.util.function.Consumer
 
 /** First screen of the application. Displayed after the application is created. */
 class GameScreen extends ScreenAdapter {
-    Batch batch
-    CampingGame game
-    AssetService assetService
-    Viewport viewport
-    OrthographicCamera camera
     Engine engine
     TiledService tiledService
     TiledAshleyConfigurator tiledAshleyConfigurator
+    KeyboardController keyboardController
+    CampingGame game
 
     GameScreen(CampingGame game) {
         this.game = game
-        assetService = game.assetService
-        viewport = game.viewport
-        camera = game.camera
-        batch = game.batch
-        tiledService = new TiledService(assetService)
+        tiledService = new TiledService(game.assetService)
         engine = new Engine()
-        tiledAshleyConfigurator = new TiledAshleyConfigurator(engine, assetService)
-        engine.addSystem(new RenderSystem(batch, viewport, camera))
+        tiledAshleyConfigurator = new TiledAshleyConfigurator(engine, game.assetService)
+        keyboardController = new KeyboardController(GameControllerState, engine)
+
+        engine.addSystem(new ControllerSystem(game))
+        engine.addSystem(new MoveSystem())
+        engine.addSystem(new RenderSystem(game.batch, game.viewport, game.camera))
     }
 
     void show() {
+        game.setInputProcessors(keyboardController)
+        keyboardController.activeState = GameControllerState
         Consumer<TiledMap> renderConsumer = engine.getSystem(RenderSystem)::setMap
         tiledService.setMapChangeConsumer(renderConsumer)
         tiledService.setLoadObjectConsumer(tiledAshleyConfigurator::onLoadOjbect)

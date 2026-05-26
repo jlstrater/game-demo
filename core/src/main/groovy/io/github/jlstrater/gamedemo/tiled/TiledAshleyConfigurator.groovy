@@ -3,7 +3,6 @@ package io.github.jlstrater.gamedemo.tiled
 import com.badlogic.ashley.core.Engine
 import com.badlogic.ashley.core.Entity
 import com.badlogic.gdx.graphics.Color
-import com.badlogic.gdx.graphics.TextureData
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.graphics.glutils.FileTextureData
@@ -13,7 +12,9 @@ import com.badlogic.gdx.math.Vector2
 import io.github.jlstrater.gamedemo.CampingGame
 import io.github.jlstrater.gamedemo.assets.AssetService
 import io.github.jlstrater.gamedemo.assets.AtlasAsset
+import io.github.jlstrater.gamedemo.component.Controller
 import io.github.jlstrater.gamedemo.component.Graphic
+import io.github.jlstrater.gamedemo.component.Move
 import io.github.jlstrater.gamedemo.component.Transform
 
 class TiledAshleyConfigurator {
@@ -38,6 +39,8 @@ class TiledAshleyConfigurator {
             tiledMapTileMapObject.scaleX, tiledMapTileMapObject.scaleY,
             entity
         )
+        addEntityMove(tile, entity)
+        addEntityController(tiledMapTileMapObject, entity)
 
         engine.addEntity(entity)
     }
@@ -67,5 +70,19 @@ class TiledAshleyConfigurator {
         TextureAtlas.AtlasRegion region = textureAtlas.findRegion(atlasKey + "/" + atlasKey)
 
         return region ?: tile.getTextureRegion()
+    }
+
+    private void addEntityController(TiledMapTileMapObject tiledMapTileMapObject, Entity entity) {
+        boolean controller = tiledMapTileMapObject.properties.get("controller", false, Boolean)
+        if (!controller) return
+
+        entity.add(new Controller())
+    }
+
+    private void addEntityMove(TiledMapTile tile, Entity entity) {
+        float speed = tile.getProperties().get("speed", 0f, Float.class);
+        if (speed == 0f) return;
+
+        entity.add(new Move(speed));
     }
 }

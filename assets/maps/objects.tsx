@@ -6,7 +6,9 @@
  </tile>
  <tile id="4">
   <properties>
+   <property name="controller" type="bool" value="true"/>
    <property name="life" type="int" value="100"/>
+   <property name="speed" type="float" value="3"/>
   </properties>
   <image source="../female_camper_128.png" width="128" height="128"/>
  </tile>

@@ -93,9 +93,12 @@
     <property name="atlasAsset" value="OBJECTS"/>
    </properties>
   </object>
-  <object id="36" gid="2147483909" x="873.5" y="664" width="128" height="128">
+  <object id="36" name="camper" gid="2147483909" x="873.5" y="664" width="128" height="128">
    <properties>
     <property name="atlasAsset" value="OBJECTS"/>
+    <property name="controller" type="bool" value="true"/>
+    <property name="life" type="int" value="100"/>
+    <property name="speed" type="float" value="1"/>
    </properties>
   </object>
  </objectgroup>

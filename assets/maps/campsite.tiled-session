@@ -52,6 +52,7 @@
         "objects.tsx"
     ],
     "project": "",
+    "property.type": "float",
     "recentFiles": [
         "campsite.tmx",
         "objects.tsx",

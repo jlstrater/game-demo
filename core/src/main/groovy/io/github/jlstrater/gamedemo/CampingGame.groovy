@@ -3,6 +3,8 @@ package io.github.jlstrater.gamedemo
 import com.badlogic.gdx.Application
 import com.badlogic.gdx.Game
 import com.badlogic.gdx.Gdx
+import com.badlogic.gdx.InputMultiplexer
+import com.badlogic.gdx.InputProcessor
 import com.badlogic.gdx.Screen
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver
 import com.badlogic.gdx.graphics.FPSLogger
@@ -29,12 +31,15 @@ class CampingGame extends Game {
     AssetService assetService
     GLProfiler glProfiler
     FPSLogger fpsLogger
+    InputMultiplexer inputMultiplexer
 
     private final Map<Class<? extends Screen>, Screen> screenCache = new HashMap<>()
 
     @Override
     void create() {
         Gdx.app.setLogLevel(Application.LOG_DEBUG)
+        inputMultiplexer = new InputMultiplexer()
+        Gdx.input.inputProcessor = inputMultiplexer
 
         batch = new SpriteBatch()
         assetService = new AssetService(new InternalFileHandleResolver())
@@ -88,5 +93,12 @@ class CampingGame extends Game {
         batch.dispose()
         assetService.debugDiagnostics()
         assetService.dispose()
+    }
+
+    void setInputProcessors(InputProcessor... processors) {
+        inputMultiplexer.clear()
+        processors.each { InputProcessor processor ->
+            inputMultiplexer.addProcessor(processor)
+        }
     }
 }
