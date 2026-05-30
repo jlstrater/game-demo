@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.10" tiledversion="1.12.1" name="objects" tilewidth="256" tileheight="256" tilecount="6" columns="0">
+<tileset version="1.10" tiledversion="1.12.1" name="objects" tilewidth="256" tileheight="256" tilecount="7" columns="0">
  <grid orientation="orthogonal" width="1" height="1"/>
  <tile id="3">
   <image source="../tree_256.png" width="256" height="256"/>
@@ -23,5 +23,14 @@
  </tile>
  <tile id="8">
   <image source="../campfire_lit_128.png" width="128" height="128"/>
+ </tile>
+ <tile id="10">
+  <properties>
+   <property name="animation" value="IDLE"/>
+   <property name="animationSpeed" type="float" value="1"/>
+   <property name="controller" type="bool" value="true"/>
+   <property name="speed" type="float" value="2"/>
+  </properties>
+  <image source="../camper.png" width="96" height="140"/>
  </tile>
 </tileset>

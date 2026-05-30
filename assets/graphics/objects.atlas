@@ -6,28 +6,354 @@ filter: Nearest, Nearest
 repeat: none
 camper/camper
   rotate: false
-  xy: 4, 4
-  size: 128, 128
-  orig: 128, 128
+  xy: 268, 292
+  size: 96, 140
+  orig: 96, 140
   offset: 0, 0
   index: -1
+camper/idle_down
+  rotate: false
+  xy: 368, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 0
+camper/idle_down
+  rotate: false
+  xy: 4, 160
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 1
+camper/idle_down
+  rotate: false
+  xy: 104, 160
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 2
+camper/idle_down
+  rotate: false
+  xy: 204, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 3
+camper/idle_down
+  rotate: false
+  xy: 304, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 4
+camper/idle_down
+  rotate: false
+  xy: 404, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 5
+camper/idle_left
+  rotate: false
+  xy: 4, 16
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 0
+camper/idle_left
+  rotate: false
+  xy: 104, 16
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 1
+camper/idle_left
+  rotate: false
+  xy: 204, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 2
+camper/idle_left
+  rotate: false
+  xy: 304, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 3
+camper/idle_left
+  rotate: false
+  xy: 404, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 4
 campfire/campfire
   rotate: false
-  xy: 264, 264
+  xy: 4, 304
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 tent/tent
   rotate: false
-  xy: 136, 4
+  xy: 136, 304
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
+
+objects2.png
+size: 512, 512
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+camper/idle_right
+  rotate: false
+  xy: 4, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 0
+camper/idle_right
+  rotate: false
+  xy: 104, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 1
+camper/idle_right
+  rotate: false
+  xy: 204, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 2
+camper/idle_right
+  rotate: false
+  xy: 304, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 3
+camper/idle_right
+  rotate: false
+  xy: 404, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 4
+camper/idle_up
+  rotate: false
+  xy: 4, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 0
+camper/idle_up
+  rotate: false
+  xy: 104, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 1
+camper/idle_up
+  rotate: false
+  xy: 204, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 2
+camper/idle_up
+  rotate: false
+  xy: 304, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 3
+camper/idle_up
+  rotate: false
+  xy: 404, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 4
+camper/idle_up
+  rotate: false
+  xy: 4, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 5
+camper/walk_down
+  rotate: false
+  xy: 104, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 0
+camper/walk_down
+  rotate: false
+  xy: 204, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 1
+camper/walk_down
+  rotate: false
+  xy: 304, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 2
+camper/walk_down
+  rotate: false
+  xy: 404, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 3
+
+objects3.png
+size: 512, 512
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+camper/walk_down
+  rotate: false
+  xy: 4, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 4
+camper/walk_down
+  rotate: false
+  xy: 104, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 5
+camper/walk_left
+  rotate: false
+  xy: 204, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 0
+camper/walk_left
+  rotate: false
+  xy: 304, 292
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 1
+camper/walk_left
+  rotate: false
+  xy: 404, 292
+  size: 98, 140
+  orig: 98, 140
+  offset: 0, 0
+  index: 2
+camper/walk_left
+  rotate: false
+  xy: 4, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 3
+camper/walk_left
+  rotate: false
+  xy: 104, 148
+  size: 95, 140
+  orig: 95, 140
+  offset: 0, 0
+  index: 4
+camper/walk_right
+  rotate: false
+  xy: 203, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 0
+camper/walk_right
+  rotate: false
+  xy: 303, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 1
+camper/walk_right
+  rotate: false
+  xy: 403, 148
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 2
+camper/walk_right
+  rotate: false
+  xy: 4, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 3
+camper/walk_right
+  rotate: false
+  xy: 104, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 4
+camper/walk_up
+  rotate: false
+  xy: 204, 4
+  size: 95, 140
+  orig: 95, 140
+  offset: 0, 0
+  index: 0
+camper/walk_up
+  rotate: false
+  xy: 303, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 1
+camper/walk_up
+  rotate: false
+  xy: 403, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 2
+
+objects4.png
+size: 512, 512
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+camper/walk_up
+  rotate: false
+  xy: 4, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 3
+camper/walk_up
+  rotate: false
+  xy: 264, 264
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 4
+camper/walk_up
+  rotate: false
+  xy: 104, 4
+  size: 96, 140
+  orig: 96, 140
+  offset: 0, 0
+  index: 5
 tree/tree
   rotate: false
-  xy: 4, 136
+  xy: 4, 148
   size: 256, 256
   orig: 256, 256
   offset: 0, 0

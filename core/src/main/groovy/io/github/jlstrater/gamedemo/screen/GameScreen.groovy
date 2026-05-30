@@ -8,7 +8,10 @@ import io.github.jlstrater.gamedemo.CampingGame
 import io.github.jlstrater.gamedemo.assets.MapAsset
 import io.github.jlstrater.gamedemo.input.GameControllerState
 import io.github.jlstrater.gamedemo.input.KeyboardController
+import io.github.jlstrater.gamedemo.system.AnimationSystem
 import io.github.jlstrater.gamedemo.system.ControllerSystem
+import io.github.jlstrater.gamedemo.system.FacingSystem
+import io.github.jlstrater.gamedemo.system.FsmSystem
 import io.github.jlstrater.gamedemo.system.MoveSystem
 import io.github.jlstrater.gamedemo.system.RenderSystem
 import io.github.jlstrater.gamedemo.tiled.TiledAshleyConfigurator
@@ -33,6 +36,9 @@ class GameScreen extends ScreenAdapter {
 
         engine.addSystem(new ControllerSystem(game))
         engine.addSystem(new MoveSystem())
+        engine.addSystem(new FsmSystem())
+        engine.addSystem(new FacingSystem())
+        engine.addSystem(new AnimationSystem(game.assetService))
         engine.addSystem(new RenderSystem(game.batch, game.viewport, game.camera))
     }
 

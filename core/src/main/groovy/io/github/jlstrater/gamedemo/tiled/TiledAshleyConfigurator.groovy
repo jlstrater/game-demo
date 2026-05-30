@@ -3,6 +3,7 @@ package io.github.jlstrater.gamedemo.tiled
 import com.badlogic.ashley.core.Engine
 import com.badlogic.ashley.core.Entity
 import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.g2d.Animation
 import com.badlogic.gdx.graphics.g2d.TextureAtlas
 import com.badlogic.gdx.graphics.g2d.TextureRegion
 import com.badlogic.gdx.graphics.glutils.FileTextureData
@@ -12,7 +13,10 @@ import com.badlogic.gdx.math.Vector2
 import io.github.jlstrater.gamedemo.CampingGame
 import io.github.jlstrater.gamedemo.assets.AssetService
 import io.github.jlstrater.gamedemo.assets.AtlasAsset
+import io.github.jlstrater.gamedemo.component.Animation2D
 import io.github.jlstrater.gamedemo.component.Controller
+import io.github.jlstrater.gamedemo.component.Facing
+import io.github.jlstrater.gamedemo.component.Fsm
 import io.github.jlstrater.gamedemo.component.Graphic
 import io.github.jlstrater.gamedemo.component.Move
 import io.github.jlstrater.gamedemo.component.Transform
@@ -39,8 +43,11 @@ class TiledAshleyConfigurator {
             tiledMapTileMapObject.scaleX, tiledMapTileMapObject.scaleY,
             entity
         )
-        addEntityMove(tile, entity)
         addEntityController(tiledMapTileMapObject, entity)
+        addEntityMove(tile, entity)
+        addEntityAnimation(tile, entity)
+        entity.add(new Facing(Facing.FacingDirection.DOWN))
+        entity.add(new Fsm(entity))
 
         engine.addEntity(entity)
     }
@@ -85,4 +92,20 @@ class TiledAshleyConfigurator {
 
         entity.add(new Move(speed));
     }
+
+     void addEntityAnimation(TiledMapTile tiledMapTile, Entity entity) {
+         String animationStr = tiledMapTile.properties.get("animation", "", String)
+         if (!animationStr) {
+             return
+         }
+
+         Animation2D.AnimationType animationType = Animation2D.AnimationType.valueOf(animationStr)
+         String atlastAssetStr = tiledMapTile.properties.get("atlasAsset", "OBJECTS", String)
+         AtlasAsset asset = AtlasAsset.valueOf(atlastAssetStr)
+         FileTextureData textureData = (FileTextureData) tiledMapTile.textureRegion.texture.textureData
+         String atlasKey = textureData.fileHandle.nameWithoutExtension()
+         float speed = tiledMapTile.properties.get("animationSpeed", 0f, Float)
+         entity.add(new Animation2D(asset, atlasKey, animationType, Animation.PlayMode.LOOP, speed))
+
+     }
 }
